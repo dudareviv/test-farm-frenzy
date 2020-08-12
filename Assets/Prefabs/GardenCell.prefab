@@ -57,3 +57,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _grid: {fileID: 0}
+  _color: {r: 0, g: 1, b: 1, a: 1}
+  _material: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}

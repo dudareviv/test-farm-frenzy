@@ -8,6 +8,12 @@ public class GardenCellDrawer : MonoBehaviour
     [SerializeField]
     private GardenGrid _grid;
 
+    [SerializeField]
+    private Color _color = Color.cyan;
+
+    [SerializeField]
+    private Material _material;
+
     private void Start()
     {
         _grid = GetComponent<GardenCell>().Grid;
@@ -31,15 +37,21 @@ public class GardenCellDrawer : MonoBehaviour
         var right = new Vector2(cellSize.x / 2, 0) + position;
         var down = new Vector2(0, -cellSize.y / 2) + position;
 
-        var positions = new Vector3[4]
+        var positions = new Vector3[5]
         {
-            left, up, right, down
+            left, up, right, down, left
         };
+
+        lineRenderer.startColor = _color;
+        lineRenderer.endColor = _color;
 
         lineRenderer.startWidth = 0.05f;
         lineRenderer.endWidth = 0.05f;
-        lineRenderer.positionCount = 4;
-        lineRenderer.loop = true;
+
+        lineRenderer.material = _material;
+
+        lineRenderer.positionCount = positions.Length;
+
         lineRenderer.SetPositions(positions);
     }
 }
